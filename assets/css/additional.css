@@ -1,0 +1,24 @@
+.card{
+	background-color: #fdd835;
+	
+}
+.line{
+	width: 2px;
+	height: 100%;
+	background-color: red;
+	position: absolute;
+}
+.texts{
+	padding: 30px
+
+}
+
+.texts input[type = text],.texts input[type = number],.texts input[type=text]:focus,.texts input[type=number]:focus{
+	border:0;
+	background-color:  #fdd835;
+	border-bottom: 1px solid #00b0ff;
+	margin-bottom: 10px;
+}
+.mot{
+	background-color: #00b0ff;
+}

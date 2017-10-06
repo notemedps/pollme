@@ -1,0 +1,47 @@
+<%include header%>
+
+<div class="container">
+<br>
+	<div class="card" style="width: 70%">
+	<div class="line" style="margin-left: 10px"></div>
+	<div class="line" style="margin-left: 15px"></div>
+	<div class="card-body texts">
+	<%
+		if(errv.length>0){
+			%>
+			<%=errv%>
+			<%
+		}
+	%>
+		<h2><%=data.question%></h2>
+		<hr class="mot">
+		<form action="/vote/<%=data.id%>" method="post">
+		<input type="text" name="dmxz" id="dmxz" style="display: none" value="<%=data.question%>" >
+
+		<%
+			for(i=0;i<data.answer.length;i++){
+			%>
+			<input type="radio" name="ans" id="ans" value="<%=data.answer[i]%>" />   
+			<%=data.answer[i]%>
+			<hr class="mot">
+
+			<%
+			}
+		%>
+		</form>
+
+		<div class="row">
+			<div class="col-md-6">
+				<button class="btn btn-danger" id="vote">Vote</button>
+				
+			</div>
+			<div class="col-md-6">
+				<a href="/<%=data.id%>/r" class="btn btn-secondary">View Result</a>
+			</div>
+		</div>
+	</div>
+	</div>
+</div>
+
+
+<%include footer%>

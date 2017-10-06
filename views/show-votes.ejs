@@ -1,0 +1,76 @@
+<%include header%>
+<div class="container">
+	<br>
+	<div class="card" style="width: 70%">
+	<div class="line" style="margin-left: 10px"></div>
+	<div class="line" style="margin-left: 15px"></div>
+	<div class="card-body texts">
+
+<%
+	if(data.length>0){
+		var nw =[];	
+		for(dats of data){
+		nw.push(dats.ans);
+
+		}
+		var dm = Array.from(new Set(nw));
+		
+
+
+		%>
+		<h2><%=data[0].qn%></h2>
+		<hr class="mot">
+		<h3>Total Votes : 
+		<%=data.length%>
+		</h3>
+		<hr class="mot">
+		
+
+		<%
+		var news = {};
+		for(ddx of dm){
+			news[ddx] = 0 ;
+		}
+		
+
+
+		for(nep of nw){
+
+			for(nxp of dm){
+				if(nxp == nep){
+					news[nxp]++;
+				}
+			}
+
+		}
+		newsa = Object.keys(news).sort(function(a,b){
+		return news[b]-news[a]
+		})
+		
+		for(nsk of newsa){
+			
+			%>
+			<b><%=nsk%> : 
+			<%=news[[nsk]]%> </b> votes
+			<br>
+			Vote Percent : <b> <%=Math.round((news[[nsk]]/data.length)*100)%>% </b>
+
+			<hr class="mot" style="margin : 6px">
+			
+			<%
+		}
+			
+
+			
+		
+		
+	
+	}
+	else{
+	%>
+	No Votes Yet
+	<%
+	}
+%>
+</div>
+<%include footer%>
